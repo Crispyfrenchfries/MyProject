@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-primary mt-5 mb-3 text-center">한줄 메모장</h1>
+		<form name="f" action="../MemoInsert" method="post">
+		<table class="table table-bordered">
+			<tr>
+				<td class="text-center"><h4>작성자</h4></td>
+				<td>
+					<input type="text" name="name"
+					 placeholder="User Name" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td class="text-center"><h4>메모내용/<h4></td>
+				<td>
+					<input type="text" name="msg"
+					 placeholder="Message" class="form-control"
+					 maxlength="100"> <!-- maxlength => 최대 입력 가능 글자개수 100개로 지정하는  것 -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="text-right">
+					<button type="button" onclick="check()" class="btn btn-primary">메모 남기기</button>
+					<button type="reset" class="btn btn-warning">다시쓰기</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+		
+	</div>
+	
+	<script type="text/javascript">
+		var check = function(){
+			if(!f.name.value){
+				alert('작성자를 입력하세요.');
+				f.name.focus();
+				return;
+			}
+			if(!f.msg.value){
+				alert('메모 내용을 입력하세요.');
+				f.msg.focus();
+				return;
+			}
+			f.submit(); //서버로 전송하는 기능
+		}
+	</script>
+</body>
+</html>
